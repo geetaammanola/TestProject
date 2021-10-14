@@ -1,0 +1,52 @@
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="menu" >
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Visitor List</ion-title>
+ 
+  </ion-toolbar>
+ </ion-header>
+
+<ion-content>
+  <div class="main">
+    <div class="detail_wrap" *ngFor=" let item of visit_details">
+      <ion-card>
+        <ion-item lines="none">
+          <div class="txt" slot="start"> visitor name</div>
+          <div class="txt" slot="end"> {{item.name }}</div>
+        </ion-item>
+
+        <ion-item lines="none">
+          <div class="txt" slot="start"> email</div>
+          <div class="txt" slot="end">    {{item.email }}</div>
+        </ion-item>
+        <ion-item lines="none">
+          <div class="txt" slot="start"> type of visit</div>
+          <div class="txt" slot="end">    {{item.type_of_visit }}</div>
+        </ion-item>
+        <ion-item lines="none">
+          <div class="txt" slot="start">  Person to visit</div>
+          <div class="txt" slot="end">    {{item.person_to_visit }}</div>
+        </ion-item>
+        <ion-item lines="none">
+          <div class="txt" slot="start">  date of visit</div>
+          <div class="txt" slot="end">    {{item.date_of_entry }}</div>
+        </ion-item>
+        <ion-item lines="none">
+          <div class="txt" slot="start">  time of visit</div>
+          <div class="txt end" slot="end">    {{item.time_of_entry }}</div>
+        </ion-item>
+        <ion-item lines="none">
+          <div class="txt" slot="start">  time of exit</div>
+          <div class="txt end" slot="end">    {{item.time_of_exit }}</div>
+        </ion-item>
+     
+      </ion-card>
+
+    </div>
+  </div>
+
+</ion-content>

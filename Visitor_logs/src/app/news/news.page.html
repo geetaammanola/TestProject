@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="menu" >
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Latest News</ion-title>
+ </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+
+  <div *ngFor="let item of newsData"> 
+<ion-card class="card">
+    <div class="title"> {{item.title}}  </div>
+    <div> <img src="{{item.urlToImage}}" />  </div>
+    <div class="txt_css"> {{item.description}}  </div>
+   
+    <div class="txt_css">  <span class="txt"> Content : </span> {{item.content}}  </div>
+    <div class="txt_css"> <span class="txt"> Source : </span>{{item.source.id}}  -  {{item.source.name}}  </div>
+    <div class="txt_css"> <span class="txt"> Website : </span> {{item.url}}  </div>
+    <div class="txt_css"> <span class="txt"> Author : </span> {{item.author}}  </div>
+    <div class="txt_css"><span class="txt">Published By:</span> {{item.publishedAt}} </div>
+  </ion-card>
+  </div>
+</ion-content>

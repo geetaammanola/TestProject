@@ -1,0 +1,113 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="menu" >
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>New Visitor</ion-title>
+ </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <form [formGroup]="visit">
+    <div class="main_div">
+     
+            <ion-item>
+              <ion-label position="floating">Name</ion-label>
+              <ion-input formControlName="name"></ion-input>
+            </ion-item>
+            <ng-container *ngFor="let validation of validation_messages.name">
+              <div class="error_message"
+                *ngIf="visit.get('name').hasError(validation.type) && (visit.get('name').dirty || visit.get('name').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+
+
+
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input formControlName="email"></ion-input>
+            </ion-item>
+            <ng-container *ngFor="let validation of validation_messages.email">
+              <div class="error_message"
+                *ngIf="visit.get('email').hasError(validation.type) && (visit.get('email').dirty || visit.get('email').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+
+            
+            <ion-item>
+              <ion-label position="floating">Type of visit</ion-label>
+              <ion-select formControlName="type_of_visit">
+                <ion-select-option value="Meeting">Meeting</ion-select-option>
+                <ion-select-option value="Delivery">Delivery</ion-select-option>
+                <ion-select-option value="Personal">Personal</ion-select-option>
+              </ion-select>
+             
+         
+            </ion-item>
+            <ng-container *ngFor="let validation of validation_messages.type_of_visit">
+              <div class="error_message"
+                *ngIf="visit.get('type_of_visit').hasError(validation.type) && (visit.get('type_of_visit').dirty || visit.get('type_of_visit').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+
+
+            <ion-item>
+              <ion-label position="floating">Person to visit</ion-label>
+              <ion-input formControlName="person_to_visit"></ion-input>
+            </ion-item>
+            <ng-container *ngFor="let validation of validation_messages.person_to_visit">
+              <div class="error_message"
+                *ngIf="visit.get('person_to_visit').hasError(validation.type) && (visit.get('person_to_visit').dirty || visit.get('person_to_visit').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+
+            <ion-item>
+              <ion-label position="floating">Date of entry</ion-label>
+              <ion-input formControlName="date_of_entry" [disabled]="true"></ion-input>
+            </ion-item>
+            <ng-container *ngFor="let validation of validation_messages.date_of_entry">
+              <div class="error_message"
+                *ngIf="visit.get('date_of_entry').hasError(validation.type) && (visit.get('date_of_entry').dirty || visit.get('date_of_entry').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+
+
+
+            <ion-item>
+              <ion-label>Time of entry</ion-label>
+              <ion-datetime    displayFormat="HH:mm"formControlName="time_of_entry"></ion-datetime>
+            </ion-item>
+            <ng-container *ngFor="let validation of validation_messages.time_of_entry">
+              <div class="error_message"
+                *ngIf="visit.get('time_of_entry').hasError(validation.type) && (visit.get('time_of_entry').dirty || visit.get('time_of_entry').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+
+            <ion-item>
+              <ion-label>Time of entry</ion-label>
+              <ion-datetime    displayFormat="HH:mm"formControlName="time_of_exit"></ion-datetime>
+            </ion-item>
+            <ng-container *ngFor="let validation of validation_messages.time_of_exit">
+              <div class="error_message"
+                *ngIf="visit.get('time_of_exit').hasError(validation.type) && (visit.get('time_of_exit').dirty || visit.get('time_of_exit').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+ </div>
+
+  </form>
+</ion-content>
+
+<ion-footer>
+  <div >
+    <ion-button expand="block"  (click)="newVisit(visit)"
+      [disabled]="!visit.valid">Submit</ion-button>
+   </div>
+</ion-footer>
